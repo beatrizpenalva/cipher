@@ -1,0 +1,15 @@
+.btn-fill {
+    background-color: #6a63fe;
+    border: transparent;
+    border-radius: 8px;
+    padding: .75rem;
+    margin: 1rem;
+    text-transform: uppercase;
+    transition: all 0.5s ease-out;
+    color: #f2f2f3;
+    cursor: pointer;
+}
+
+.btn-fill:hover {
+    background-color: #3700BC;
+}
