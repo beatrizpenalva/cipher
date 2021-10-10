@@ -4,9 +4,9 @@ import "./index.css";
 const RadioButton = ({ method }) => {
   return (
     <>
-      <label htmlFor={method} class="radio-button">
+      <label htmlFor={method}>
         <input type="radio" name="method" value={method} id={method}></input>
-        <span>{method}</span>
+        <span class="radio-button">{method}</span>
       </label>
     </>
   );
