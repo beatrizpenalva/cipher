@@ -3,16 +3,18 @@ import "./index.css";
 
 const BoxMessage = ({ label, placeholder }) => {
   return (
-    <>
-      <label htmlFor={label}>{label}</label>
+    <section className="box-message">
+      <label className="input-label" htmlFor={label}>
+        {label}
+      </label>
       <textarea
         id={label}
         placeholder={placeholder}
-        className="box-message"
-        maxLength='2000'
-        spellCheck='true'
+        className="text-area"
+        maxLength="2000"
+        spellCheck="true"
       ></textarea>
-    </>
+    </section>
   );
 };
 
