@@ -11,7 +11,10 @@
   --p: lighter 1.25rem "Oswald", sans-serif;
   --btn: normal 1rem "Oswald", sans-serif;
   --primary-color: #6a63fe;
-  --secondary-color: #3700BC;
+  --secondary-color: #3700bc;
   --white: #f2f2f3;
+  --gray-darker: #212121;
+  --gray-lighter: #FAFAFA;
+  --black_10: rgba(0, 0, 0, 0.1);
   --transition-hover: all 0.5s ease-out;
 }
