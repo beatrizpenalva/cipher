@@ -1,19 +1,16 @@
-.input-label {
+.input-sm-label {
   display: flex;
   flex-direction: column;
   padding: 0 0.5rem 0.25rem;
-  font: var(--h2);
+  font: var(--btn);
   color: var(--gray-darker);
 }
 
-.text-area {
-  padding: 0.5rem;
-  font: var(--p);
+.text-field {
+  font: var(--p-sm);
   color: var(--gray-darker);
   background-color: var(--black_10);
   border: none;
   border-bottom: 2px solid var(--primary-color);
   outline: none;
-  resize: none;
-  overflow: auto;
 }
