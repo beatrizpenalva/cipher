@@ -1,10 +1,12 @@
-.box-message {
-    display: flex;
-    flex-direction: column;
+.input-label {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem 0.25rem;
+  font: var(--h2);
+  color: var(--gray-darker);
 }
 
 .text-area {
-  width: 32vw;
   padding: 0.5rem;
   font: var(--p);
   color: var(--gray-darker);
@@ -14,10 +16,4 @@
   outline: none;
   resize: none;
   overflow: auto;
-}
-
-.input-label {
-  padding: 0 0.5rem .25rem;
-  font: var(--h2);
-  color: var(--gray-darker);
 }

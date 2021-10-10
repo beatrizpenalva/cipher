@@ -5,9 +5,9 @@ const BoxMessage = ({ label, placeholder, spellCheck, readOnly }) => {
   const handleChange = (e) => {
     console.log(e.target.value);
   };
-  
+
   return (
-    <section className="box-message">
+    <>
       <label className="input-label" htmlFor={label}>
         {label}
       </label>
@@ -20,7 +20,7 @@ const BoxMessage = ({ label, placeholder, spellCheck, readOnly }) => {
         readOnly={readOnly}
         onChange={(e) => handleChange(e)}
       ></textarea>
-    </section>
+    </>
   );
 };
 
