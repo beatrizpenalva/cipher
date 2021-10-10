@@ -1,4 +1,4 @@
-.btn-fill {
+.btn-filled {
     padding: .75rem 3rem;
     margin: 1rem;
     font: var(--btn);
@@ -11,6 +11,6 @@
     cursor: pointer;
 }
 
-.btn-fill:hover {
+.btn-filled:hover {
     background-color: var(--secondary-color);
 }

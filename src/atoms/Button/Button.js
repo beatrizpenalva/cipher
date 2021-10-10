@@ -8,7 +8,7 @@ const Button = ({ action }) => {
 
   return (
     <>
-      <button className="btn-fill" onClick={() => handleClick()}>{action}</button>
+      <button className="btn-filled" onClick={() => handleClick()}>{action}</button>
     </>
   );
 };
