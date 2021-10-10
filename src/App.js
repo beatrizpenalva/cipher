@@ -2,6 +2,7 @@ import React from "react";
 import Button from "./atoms/Button";
 import BoxMessage from "./atoms/BoxMessage";
 import Counter from "./atoms/Counter";
+import RadioButton from "./atoms/RadioButton";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         spellCheck={true}
         readOnly={false}
       />
+      <RadioButton method={"decode"} />
+      <RadioButton method={"encode"} />
+
       <BoxMessage
         label={"Output"}
         placeholder={"Message encrypted"}
