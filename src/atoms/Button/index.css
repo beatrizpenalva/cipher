@@ -1,16 +1,3 @@
-.btn-filled {
-    padding: .625rem 3rem;
-    margin: 1rem;
-    font: var(--btn);
-    color: var(--gray-lighter);
-    text-transform: uppercase;
-    background-color: var(--primary-color);
-    border: transparent;
-    border-radius: 8px;
-    transition: var(--transition-hover);
-    cursor: pointer;
-}
-
 .btn-filled:hover {
     background-color: var(--secondary-color);
 }
