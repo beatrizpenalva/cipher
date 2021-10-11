@@ -1,11 +1,7 @@
 import React from "react";
 import "./index.css";
 
-const RadioButton = ({ method }) => {
-  const handleChange = (e) => {
-    console.log(e.target.value);
-  };
-
+const RadioButton = ({ method, action }) => {
   return (
     <>
       <label htmlFor={method}>
@@ -14,7 +10,7 @@ const RadioButton = ({ method }) => {
           name="method"
           value={method}
           id={method}
-          onChange={(e) => handleChange(e)}
+          onChange={(e) => action(e.target.value)}
         ></input>
         <span className="radio-button">{method}</span>
       </label>
