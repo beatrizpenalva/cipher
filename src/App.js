@@ -36,15 +36,21 @@ function App() {
   };
 
   const clearOutput = () => {
-    setMessage("");
-    setMessageEncrypted("");
-    setOffset("");
-    setMessageLenght(0);
+    if (!messageEncrypted) alert("There is nothing to clear.");
+    else {
+      setMessage("");
+      setMessageEncrypted("");
+      setOffset("");
+      setMessageLenght(0);
+    }
   };
 
   const copyOutput = () => {
-    navigator.clipboard.writeText(messageEncrypted);
-    changeBtnLabel();
+    if (!messageEncrypted) alert("There is nothing to copy.");
+    else {
+      navigator.clipboard.writeText(messageEncrypted);
+      changeBtnLabel();
+    }
   };
 
   const changeBtnLabel = () => {
