@@ -1,13 +1,15 @@
 import React from "react";
-import "./index.css";
+import { useStyles } from "./InputNumber.styles";
 
 const InputNumber = ({ label, placeholder, setOffState, value }) => {
+  const classes = useStyles();
+
   return (
     <>
-      <label htmlFor="offset" className="input-sm-label">
+      <label htmlFor="offset" className={classes.label}>
         {label}
         <input
-          className="text-field"
+          className={classes.textField}
           id="offset"
           type="number"
           placeholder={placeholder}
