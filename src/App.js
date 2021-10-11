@@ -12,6 +12,7 @@ function App() {
   const [offset, setOffset] = useState();
   const [method, setMethod] = useState("");
   const [messageLenght, setMessageLenght] = useState(0);
+  const [copyBtnLabel, setCopyBtnLabel] = useState("copy");
 
   useEffect(() => {
     setMessageLenght(message.length);
@@ -39,7 +40,15 @@ function App() {
     setMessageEncrypted("");
     setOffset("");
     setMessageLenght(0);
-  }
+  };
+
+  const copyOutput = () => {
+    navigator.clipboard.writeText(messageEncrypted)
+    setCopyBtnLabel("copied");
+    setTimeout(function () {
+      setCopyBtnLabel("copy");
+    }, 1000);
+  };
 
   return (
     <div className="App">
@@ -68,7 +77,7 @@ function App() {
         readOnly={true}
         value={messageEncrypted}
       />
-      <Button func={"copy"} />
+      <Button func={copyBtnLabel} action={copyOutput} />
       <Button func={"clear"} action={clearOutput} />
     </div>
   );
