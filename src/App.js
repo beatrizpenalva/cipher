@@ -11,9 +11,11 @@ function App() {
   const [messageEncrypted, setMessageEncrypted] = useState("");
   const [offset, setOffset] = useState();
   const [method, setMethod] = useState("");
-  //const [caracteresNumber, setCaracteresNumber] = useState();
+  const [messageLenght, setMessageLenght] = useState(0);
 
   useEffect(() => {
+    setMessageLenght(message.length);
+
     if (method && offset && message) {
       const finalMessage = encrypt(offset, message, method);
       setMessageEncrypted(finalMessage);
@@ -39,7 +41,7 @@ function App() {
         placeholder={"1-999"}
         setOffState={setOffState}
       />
-      <Counter value={0} maxValue={2000} />
+      <Counter value={messageLenght} maxValue={2000} />
       <BoxMessage
         label={"Input"}
         placeholder={"Type your message here"}
