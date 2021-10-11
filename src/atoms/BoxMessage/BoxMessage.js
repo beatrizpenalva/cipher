@@ -1,9 +1,17 @@
 import React from "react";
 import "./index.css";
 
-const BoxMessage = ({ label, placeholder, spellCheck, readOnly }) => {
-  const handleChange = (e) => {
-    console.log(e.target.value);
+const BoxMessage = ({
+  label,
+  placeholder,
+  spellCheck,
+  readOnly,
+  action,
+  value
+}) => {
+  
+  const handleChange = (message) => {
+    if (label === "Input") action(message);
   };
 
   return (
@@ -18,7 +26,8 @@ const BoxMessage = ({ label, placeholder, spellCheck, readOnly }) => {
         maxLength="2000"
         spellCheck={spellCheck}
         readOnly={readOnly}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => handleChange(e.target.value)}
+        value={value}
       ></textarea>
     </>
   );
