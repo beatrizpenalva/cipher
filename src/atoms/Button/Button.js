@@ -1,14 +1,14 @@
 import React from "react";
 import "./index.css";
 
-const Button = ({ action }) => {
+const Button = ({ func, action }) => {
   const handleClick = () => {
-    console.log("clicou");
+    action()
   };
 
   return (
     <>
-      <button className="btn-filled" onClick={() => handleClick()}>{action}</button>
+      <button className="btn-filled" onClick={() => handleClick()}>{func}</button>
     </>
   );
 };

@@ -34,12 +34,20 @@ function App() {
     setMethod(methodToApply);
   };
 
+  const clearOutput = () => {
+    setMessage("");
+    setMessageEncrypted("");
+    setOffset("");
+    setMessageLenght(0);
+  }
+
   return (
     <div className="App">
       <InputNumber
         label={"Key"}
         placeholder={"1-999"}
         setOffState={setOffState}
+        value={offset}
       />
       <Counter value={messageLenght} maxValue={2000} />
       <BoxMessage
@@ -47,6 +55,7 @@ function App() {
         placeholder={"Type your message here"}
         spellCheck={true}
         readOnly={false}
+        value={message}
         action={setMessageState}
       />
       <RadioButton method={"decode"} action={setMethodState} />
@@ -59,8 +68,8 @@ function App() {
         readOnly={true}
         value={messageEncrypted}
       />
-      <Button action={"copy"} />
-      <Button action={"clear"} />
+      <Button func={"copy"} />
+      <Button func={"clear"} action={clearOutput} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 
-const InputNumber = ({ label, placeholder, setOffState }) => {
+const InputNumber = ({ label, placeholder, setOffState, value }) => {
   return (
     <>
       <label htmlFor="offset" className="input-sm-label">
@@ -14,6 +14,7 @@ const InputNumber = ({ label, placeholder, setOffState }) => {
           maxLength="999"
           minLength="1"
           onChange={(e) => setOffState(e.target.value)}
+          value={value}
         ></input>
       </label>
     </>
