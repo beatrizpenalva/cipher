@@ -43,7 +43,11 @@ function App() {
   };
 
   const copyOutput = () => {
-    navigator.clipboard.writeText(messageEncrypted)
+    navigator.clipboard.writeText(messageEncrypted);
+    changeBtnLabel();
+  };
+
+  const changeBtnLabel = () => {
     setCopyBtnLabel("copied");
     setTimeout(function () {
       setCopyBtnLabel("copy");
