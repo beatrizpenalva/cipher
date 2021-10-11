@@ -3,12 +3,14 @@ import "./index.css";
 
 const Button = ({ func, action }) => {
   const handleClick = () => {
-    action()
+    action();
   };
 
   return (
     <>
-      <button className="btn-filled" onClick={() => handleClick()}>{func}</button>
+      <button className="btn-filled" onClick={() => handleClick()}>
+        {func}
+      </button>
     </>
   );
 };
