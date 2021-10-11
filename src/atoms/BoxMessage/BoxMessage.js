@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import { useStyles } from "./BoxMessage.styles";
 
 const BoxMessage = ({
   label,
@@ -7,22 +7,23 @@ const BoxMessage = ({
   spellCheck,
   readOnly,
   action,
-  value
+  value,
 }) => {
-  
+  const classes = useStyles();
+
   const handleChange = (message) => {
     if (label === "Input") action(message);
   };
 
   return (
     <>
-      <label className="input-label" htmlFor={label}>
+      <label className={classes.label} htmlFor={label}>
         {label}
       </label>
       <textarea
         id={label}
         placeholder={placeholder}
-        className="text-area"
+        className={classes.textArea}
         maxLength="2000"
         spellCheck={spellCheck}
         readOnly={readOnly}
