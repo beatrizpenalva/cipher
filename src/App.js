@@ -13,15 +13,22 @@ function App() {
   const [method, setMethod] = useState("");
   const [messageLenght, setMessageLenght] = useState(0);
   const [copyBtnLabel, setCopyBtnLabel] = useState("copy");
+  const [copyBtnState, setCopyBtnState] = useState(true);
+  const [clearBtnState, setBtnState] = useState(true);
 
   useEffect(() => {
     setMessageLenght(message.length);
-
+    if (offset || message) setBtnState(false);
     if (method && offset && message) {
       const finalMessage = encrypt(offset, message, method);
       setMessageEncrypted(finalMessage);
     }
   }, [method, offset, message]);
+
+  useEffect(() => {
+    if (!messageEncrypted) setCopyBtnState(true);
+    else setCopyBtnState(false);
+  }, [messageEncrypted]);
 
   const setOffState = (offsetNumber) => {
     setOffset(offsetNumber);
@@ -36,21 +43,15 @@ function App() {
   };
 
   const clearOutput = () => {
-    if (!messageEncrypted) alert("There is nothing to clear.");
-    else {
-      setMessage("");
-      setMessageEncrypted("");
-      setOffset("");
-      setMessageLenght(0);
-    }
+    setMessage("");
+    setMessageEncrypted("");
+    setOffset("");
+    setMessageLenght(0);
   };
 
   const copyOutput = () => {
-    if (!messageEncrypted) alert("There is nothing to copy.");
-    else {
-      navigator.clipboard.writeText(messageEncrypted);
-      changeBtnLabel();
-    }
+    navigator.clipboard.writeText(messageEncrypted);
+    changeBtnLabel();
   };
 
   const changeBtnLabel = () => {
@@ -87,8 +88,8 @@ function App() {
         readOnly={true}
         value={messageEncrypted}
       />
-      <Button func={copyBtnLabel} action={copyOutput} />
-      <Button func={"clear"} action={clearOutput} />
+      <Button func={copyBtnLabel} action={copyOutput} disabled={copyBtnState} />
+      <Button func={"clear"} action={clearOutput} disabled={clearBtnState} />
     </div>
   );
 }
