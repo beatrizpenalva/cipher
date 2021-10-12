@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Button from "./atoms/Button";
 import BoxMessage from "./atoms/BoxMessage";
 import Counter from "./atoms/Counter";
@@ -13,15 +14,22 @@ function App() {
   const [method, setMethod] = useState("");
   const [messageLenght, setMessageLenght] = useState(0);
   const [copyBtnLabel, setCopyBtnLabel] = useState("copy");
+  const [copyBtnState, setCopyBtnState] = useState(true);
+  const [clearBtnState, setBtnState] = useState(true);
 
   useEffect(() => {
     setMessageLenght(message.length);
-
+    if (offset || message) setBtnState(false);
     if (method && offset && message) {
       const finalMessage = encrypt(offset, message, method);
       setMessageEncrypted(finalMessage);
     }
   }, [method, offset, message]);
+
+  useEffect(() => {
+    if (!messageEncrypted) setCopyBtnState(true);
+    else setCopyBtnState(false);
+  }, [messageEncrypted]);
 
   const setOffState = (offsetNumber) => {
     setOffset(offsetNumber);
@@ -55,35 +63,42 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <InputNumber
-        label={"Key"}
-        placeholder={"1-999"}
-        setOffState={setOffState}
-        value={offset}
-      />
-      <Counter value={messageLenght} maxValue={2000} />
-      <BoxMessage
-        label={"Input"}
-        placeholder={"Type your message here"}
-        spellCheck={true}
-        readOnly={false}
-        value={message}
-        action={setMessageState}
-      />
-      <RadioButton method={"decode"} action={setMethodState} />
-      <RadioButton method={"encode"} action={setMethodState} />
+    <>
+      <CssBaseline />
+      <div className="App">
+        <InputNumber
+          label={"Key"}
+          placeholder={"1-999"}
+          setOffState={setOffState}
+          value={offset}
+        />
+        <Counter value={messageLenght} maxValue={2000} />
+        <BoxMessage
+          label={"Input"}
+          placeholder={"Type your message here"}
+          spellCheck={true}
+          readOnly={false}
+          value={message}
+          action={setMessageState}
+        />
+        <RadioButton method={"decode"} action={setMethodState} />
+        <RadioButton method={"encode"} action={setMethodState} />
 
-      <BoxMessage
-        label={"Output"}
-        placeholder={"The message encrypted will appear here."}
-        spellCheck={false}
-        readOnly={true}
-        value={messageEncrypted}
-      />
-      <Button func={copyBtnLabel} action={copyOutput} />
-      <Button func={"clear"} action={clearOutput} />
-    </div>
+        <BoxMessage
+          label={"Output"}
+          placeholder={"The message encrypted will appear here."}
+          spellCheck={false}
+          readOnly={true}
+          value={messageEncrypted}
+        />
+        <Button
+          func={copyBtnLabel}
+          action={copyOutput}
+          disabled={copyBtnState}
+        />
+        <Button func={"clear"} action={clearOutput} disabled={clearBtnState} />
+      </div>
+    </>
   );
 }
 

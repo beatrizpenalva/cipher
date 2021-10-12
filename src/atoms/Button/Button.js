@@ -1,14 +1,20 @@
 import React from "react";
-import "./index.css";
+import { useStyles } from "./Button.styles";
 
-const Button = ({ func, action }) => {
+const Button = ({ func, action, disabled }) => {
+  const classes = useStyles();
+
   const handleClick = () => {
     action();
   };
 
   return (
     <>
-      <button className="btn-filled" onClick={() => handleClick()}>
+      <button
+        className={classes.buttonFilled}
+        disabled={disabled}
+        onClick={() => handleClick()}
+      >
         {func}
       </button>
     </>
