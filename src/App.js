@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Button from "./atoms/Button";
 import BoxMessage from "./atoms/BoxMessage";
 import Counter from "./atoms/Counter";
@@ -62,35 +63,42 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <InputNumber
-        label={"Key"}
-        placeholder={"1-999"}
-        setOffState={setOffState}
-        value={offset}
-      />
-      <Counter value={messageLenght} maxValue={2000} />
-      <BoxMessage
-        label={"Input"}
-        placeholder={"Type your message here"}
-        spellCheck={true}
-        readOnly={false}
-        value={message}
-        action={setMessageState}
-      />
-      <RadioButton method={"decode"} action={setMethodState} />
-      <RadioButton method={"encode"} action={setMethodState} />
+    <>
+      <CssBaseline />
+      <div className="App">
+        <InputNumber
+          label={"Key"}
+          placeholder={"1-999"}
+          setOffState={setOffState}
+          value={offset}
+        />
+        <Counter value={messageLenght} maxValue={2000} />
+        <BoxMessage
+          label={"Input"}
+          placeholder={"Type your message here"}
+          spellCheck={true}
+          readOnly={false}
+          value={message}
+          action={setMessageState}
+        />
+        <RadioButton method={"decode"} action={setMethodState} />
+        <RadioButton method={"encode"} action={setMethodState} />
 
-      <BoxMessage
-        label={"Output"}
-        placeholder={"The message encrypted will appear here."}
-        spellCheck={false}
-        readOnly={true}
-        value={messageEncrypted}
-      />
-      <Button func={copyBtnLabel} action={copyOutput} disabled={copyBtnState} />
-      <Button func={"clear"} action={clearOutput} disabled={clearBtnState} />
-    </div>
+        <BoxMessage
+          label={"Output"}
+          placeholder={"The message encrypted will appear here."}
+          spellCheck={false}
+          readOnly={true}
+          value={messageEncrypted}
+        />
+        <Button
+          func={copyBtnLabel}
+          action={copyOutput}
+          disabled={copyBtnState}
+        />
+        <Button func={"clear"} action={clearOutput} disabled={clearBtnState} />
+      </div>
+    </>
   );
 }
 
