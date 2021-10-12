@@ -1,7 +1,7 @@
 import React from "react";
 import { useStyles } from "./Button.styles";
 
-const Button = ({ func, action }) => {
+const Button = ({ func, action, disabled }) => {
   const classes = useStyles();
 
   const handleClick = () => {
@@ -10,7 +10,11 @@ const Button = ({ func, action }) => {
 
   return (
     <>
-      <button className={classes.buttonFilled} onClick={() => handleClick()}>
+      <button
+        className={classes.buttonFilled}
+        disabled={disabled}
+        onClick={() => handleClick()}
+      >
         {func}
       </button>
     </>

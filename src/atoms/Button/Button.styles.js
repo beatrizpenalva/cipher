@@ -16,9 +16,13 @@ export const useStyles = makeStyles({
     borderRadius: "8px",
     transition: tokens.transitionHover,
     cursor: "pointer",
-
+    
     "&:hover": {
       backgroundColor: tokens.secondaryColor,
+    },
+
+    "&:disabled": {
+      backgroundColor: tokens.grayLight,
     },
   },
 });
