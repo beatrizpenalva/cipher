@@ -4,6 +4,7 @@ export const tokens = {
   primaryColor: "#6a63fe",
   secondaryColor: "#3700bc",
   grayDarker: "#212121",
+  grayLight: "#bdbdbd",
   grayLighter: "#FAFAFA",
   black_10: "rgba(0, 0, 0, 0.1)",
   h1: `normal 2.8rem ${fontBody}, sans-serif`,
